@@ -110,3 +110,13 @@ h1 {
     font-size: 2rem;
   }
 }
+.won {
+  background-color: chartreuse;
+}
+button {
+  background-color: chartreuse;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  letter-spacing: 2px;
+}
