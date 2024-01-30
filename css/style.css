@@ -120,3 +120,8 @@ button {
   padding: 0.5rem 1rem;
   letter-spacing: 2px;
 }
+
+.playing {
+  border: 5px solid chartreuse;
+  border-radius: 3px;
+}

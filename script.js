@@ -1,7 +1,8 @@
 const cells = document.querySelectorAll(".cell");
 
 const restartBtn = document.querySelector("#rematch");
-
+const playerX = document.querySelector(".player-one");
+const playerY = document.querySelector(".player-two");
 const winConditions = [
   [0, 1, 2],
 
@@ -56,6 +57,13 @@ function updateCell(cell, index) {
 
 function changePlayer() {
   currentPlayer = currentPlayer == "X" ? "O" : "X";
+  if (currentPlayer === "X") {
+    playerX.classList.add("playing");
+    playerY.classList.remove("playing");
+  } else {
+    playerY.classList.add("playing");
+    playerX.classList.remove("playing");
+  }
 }
 
 function checkWinner() {
@@ -77,6 +85,9 @@ function checkWinner() {
     if (cellA == cellB && cellB == cellC) {
       roundWon = true;
 
+      for (let i = 0; i < 3; i++) {
+        cells[condition[i]].classList.add("won");
+      }
       break;
     }
   }
@@ -95,7 +106,10 @@ function restartGame() {
 
   options = ["", "", "", "", "", "", "", "", ""];
 
-  cells.forEach((cell) => (cell.textContent = ""));
+  cells.forEach((cell) => {
+    cell.textContent = "";
+    if (cell.classList.contains("won")) cell.classList.remove("won");
+  });
 
   running = true;
 }
