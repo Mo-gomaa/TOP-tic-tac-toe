@@ -103,7 +103,13 @@ function checkWinner() {
 
 function restartGame() {
   currentPlayer = "X";
-
+  if (currentPlayer === "X") {
+    playerX.classList.add("playing");
+    playerY.classList.remove("playing");
+  } else {
+    playerY.classList.add("playing");
+    playerX.classList.remove("playing");
+  }
   options = ["", "", "", "", "", "", "", "", ""];
 
   cells.forEach((cell) => {
